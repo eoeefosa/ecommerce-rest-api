@@ -86,25 +86,32 @@ const postProduct = async (req, res) => {
     numReviews: req.body.numReviews,
     isFeatured: req.body.isFeatured,
   });
+
+  productresult = await product.save();
+  if (!productresult)
+    return res.status(500).json(customerror("Product cannot be created"));
+
+  res.json(customSuccess(data:product,message:"Product created successfully"))
+
 };
 
-router.post(
-  "/productupload",
-  upload.single("productImage"),
-  async (req, res) => {
-    console.log(req.file);
-    const product = new Product({
-      name: req.body.name,
-      description: req.body.description,
-    });
+// router.post(
+//   "/productupload",
+//   upload.single("productImage"),
+//   async (req, res) => {
+//     console.log(req.file);
+//     const product = new Product({
+//       name: req.body.name,
+//       description: req.body.description,
+//     });
 
-    try {
-      const productsave = await product.save();
-      res.status(200).json(productsave);
-    } catch (error) {
-      res.status(400).json(customerror(error.message));
-    }
-  }
-);
+//     try {
+//       const productsave = await product.save();
+//       res.status(200).json(productsave);
+//     } catch (error) {
+//       res.status(400).json(customerror(error.message));
+//     }
+//   }
+// );
 
 module.exports = router;
