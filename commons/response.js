@@ -15,6 +15,6 @@ const customSuccess = (response) => {
 
 module.exports = { customerror, customSuccess };
 
-const error = customSuccess({ data: customerror("Hello ") });
+// const error = customSuccess({ data: customerror("Hello ") });
 
-console.log({ error });
+// console.log({ error });

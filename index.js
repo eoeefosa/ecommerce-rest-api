@@ -32,6 +32,9 @@ app.use("/api", productroutes);
 app.get("/", (req, res) => {
   res.send("Go to /api/");
 });
+app.get("/api", (req, res) => {
+  res.send("Go to /api/");
+});
 
 app.listen(3000, () => {
   console.log(`server started as ${3000}`);

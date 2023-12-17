@@ -9,7 +9,7 @@ const Product = require("../models/product");
 const Category = require("../models/category");
 
 const upload = multer({ dest: "./uploads" });
-const { customerror, customSuccess } = require("../src/utils/errorresponse");
+const { customerror, customSuccess } = require("../commons/response");
 
 router.post(
   "/productupload",

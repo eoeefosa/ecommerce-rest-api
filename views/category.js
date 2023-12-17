@@ -1,5 +1,5 @@
 const Category = require("../models/category");
-const { customerror, customSuccess } = require("../src/utils/errorresponse");
+const { customerror, customSuccess } = require("../commons/response");
 
 const addcategory = async (req, res) => {
   const category = new Category({
